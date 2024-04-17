@@ -1,11 +1,12 @@
 console.log("FILE READ: ' routes/users.js'")
 const express = require("express")
 const router = express.Router()
+const users = [{ name: "Kyle" }, { name: "Sally" }]
 
 router.use(logger)
 
 router.get("/", (req, res) => {
-  console.log(req.query.name)
+  console.log('Query name: ', req.query.name)
   res.send("User List")
 })
 
@@ -27,8 +28,8 @@ router.post("/", (req, res) => {
 router
   .route("/:id")
   .get((req, res) => {
-    console.log(req.user)
-    res.send(`Get User With ID ${req.params.id}`)
+    console.log('req.user: ', req.user)
+    res.send(`Get User With ID ${req.params.id}... Name = ${req.user.name}`)
   })
   .put((req, res) => {
     res.send(`Update User With ID ${req.params.id}`)
@@ -37,7 +38,6 @@ router
     res.send(`Delete User With ID ${req.params.id}`)
   })
 
-const users = [{ name: "Kyle" }, { name: "Sally" }]
 router.param("id", (req, res, next, id) => {
   req.user = users[id]
   next()
