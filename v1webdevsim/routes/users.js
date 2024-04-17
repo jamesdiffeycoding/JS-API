@@ -1,3 +1,4 @@
+console.log("FILE READ: ' routes/users.js'")
 const express = require("express")
 const router = express.Router()
 
@@ -42,8 +43,9 @@ router.param("id", (req, res, next, id) => {
   next()
 })
 
+// logger logs the route that has been requested
 function logger(req, res, next) {
-  console.log(req.originalUrl)
+  console.log("URL request received at ", "'",  req.originalUrl, "'")
   next()
 }
 

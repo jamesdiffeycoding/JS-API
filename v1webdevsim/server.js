@@ -1,3 +1,5 @@
+console.log("FILE READ: ' server.js'")
+
 const express = require("express")
 const app = express()
 
