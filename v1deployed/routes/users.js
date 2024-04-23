@@ -1,7 +1,7 @@
 console.log("FILE READ: ' routes/users.js'")
 const express = require("express")
 const router = express.Router()
-const users = [{ name: "Kyle" }, { name: "Sally" }]
+const users = [{ "name": "Kyle" }, { "name": "Sally" }]
 
 router.use(logger)
 
