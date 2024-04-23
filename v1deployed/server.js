@@ -2,11 +2,13 @@ console.log("FILE READ: ' server.js'")
 
 const express = require("express")
 const app = express()
+const cors = require("./middleware/cors")
 
 app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }))
 // allows you to access req.body /
 app.use(express.json())
+app.use(cors)
 
 // templating
 app.set("view engine", "ejs")
