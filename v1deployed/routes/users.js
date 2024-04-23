@@ -15,7 +15,7 @@ router.get("/new", (req, res) => {
 })
 
 router.post("/", (req, res) => {
-  const isValid = false
+  const isValid = true
   if (isValid) {
     users.push({ firstName: req.body.firstName })
     res.redirect(`/users/${users.length - 1}`)
@@ -29,7 +29,7 @@ router
   .route("/:id")
   .get((req, res) => {
     console.log('req.user: ', req.user)
-    res.send(`Get User With ID ${req.params.id}... Name = ${req.user.name}`)
+    res.send(`Get User With ID ${req.params.id}... Name = ${req.user.firstName}`)
   })
   .put((req, res) => {
     res.send(`Update User With ID ${req.params.id}`)
