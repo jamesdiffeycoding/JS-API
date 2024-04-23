@@ -23,7 +23,8 @@ app.use("/users", userRouter);
 
 // Routes
 app.get("/", (req, res) => {
-    res.send(`This is the homepage`);
+    res.json({ "message": "Welcome to the homepage" });
+    // res.send(`This is the homepage`);
 });
 
 // Server start
