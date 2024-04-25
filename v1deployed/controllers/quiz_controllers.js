@@ -55,7 +55,7 @@ console.log(questionObject);
 
 async function getQuestionById(req, res) {
   try {
-    const response = questionObject[1]
+    const response = questionObject[req.params.id]
     // const response = await res.json()
     return res.status(200).send({message: "Question with specified id retrived successfully", data: response});
   }
