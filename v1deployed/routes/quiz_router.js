@@ -5,7 +5,7 @@ const router = express.Router()
 const quizControllers = require('../controllers/quiz_controllers.js')
 
 router.get("/quiz", quizControllers.getAllQuestions)
-router.post("/quiz", quizControllers.createQuestion)
+// router.post("/quiz", quizControllers.createQuestion)
 
 // router.use(logger)
 
