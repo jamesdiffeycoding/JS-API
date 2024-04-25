@@ -53,11 +53,20 @@ console.log(questionObject);
   }
 }
 
-
-
-function getUserbyId(ID) {
-    return userData[ID];
+async function getQuestionById(req, res) {
+  try {
+    const response = questionObject[1]
+    // const response = await res.json()
+    return res.status(200).send({message: "Question with specified id retrived successfully", data: response});
+  }
+  catch (error) {
+    return res.status(500).send({message: "Error retrieving questions with specified id", error: error});
+  }
 }
+
+// function getQuestionbyId(ID) {
+//     return userData[ID];
+// }
 
 function createQuestion(user) {
     userData.push(user);
