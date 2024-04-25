@@ -13,6 +13,9 @@ app.use(cors({
 }));
 
 // Other middleware setup
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(__dirname + '/public/favicon.ico');
+});
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
