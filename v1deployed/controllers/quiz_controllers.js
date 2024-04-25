@@ -43,9 +43,14 @@ const questionObject = [
 console.log(questionObject);
 
  async function getAllQuestions(req, res) {
+  try {
     const response = questionObject
     // const response = await res.json()
     return res.status(200).send({message: "All questions retrieved successfully", data: response});
+  }
+  catch (error) {
+    return res.status(500).send({message: "Error retrieving questions", error: error});
+  }
 }
 
 
