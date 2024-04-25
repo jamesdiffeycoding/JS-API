@@ -75,5 +75,6 @@ function createQuestion(user) {
 }
 
 module.exports = {
-    getAllQuestions: getAllQuestions
+    getAllQuestions: getAllQuestions,
+    getQuestionById: getQuestionById
 };
