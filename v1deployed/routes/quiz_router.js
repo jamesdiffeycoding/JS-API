@@ -1,16 +1,12 @@
 console.log("FILE READ: ' routes/users.js'")
 const express = require("express")
 const router = express.Router()
-// const users = [{ "name": "Kyle" }, { "name": "Sally" }]
 const quizControllers = require('../controllers/quiz_controllers.js')
+
 
 router.get("/quiz", quizControllers.getAllQuestions)
 router.get("/quiz/:id", quizControllers.getQuestionById)
-// router.get("/quiz/:id", quizControllers.getQuestonById(iid))
-
-// router.post("/quiz", quizControllers.createQuestion)
-
-// router.use(logger)
+router.post("/quiz", quizControllers.createQuestion)
 
 // router.get("/", (req, res) => {
 //   console.log('Query name: ', req.query.name)

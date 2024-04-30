@@ -1,50 +1,11 @@
-const userData = require("../data/users.json");
+const hardCodedQuestions = require("../data/users.json");
 var fs = require('fs');
 
+console.log(hardCodedQuestions);
 
-const questionObject = [
-    {
-      "Id": 0,
-      "Question": "What is an API?",
-      "Answer A": "Apple packaging igloo",
-      "Answer B": "Application programming interface",
-      "True Answer": "B"
-    },
-    {
-      "Id": 1,
-      "Question": "What is REST?",
-      "Answer A": "Sitting in the woods",
-      "Answer B": "Representational state transfer",
-      "True Answer": "B"
-    },
-    {
-      "Id": 2,
-      "Question": "What is Git?",
-      "Answer A": "A slang term for a silly person",
-      "Answer B": "A distributed version control system",
-      "True Answer": "B"
-    },
-    {
-      "Id": 3,
-      "Question": "What is HTML?",
-      "Answer A": "A type of metal",
-      "Answer B": "Hypertext Markup Language",
-      "True Answer": "B"
-    },
-    {
-      "Id": 4,
-      "Question": "What is CSS?",
-      "Answer A": "Cascading Snake Style",
-      "Answer B": "Cascading Style Sheets",
-      "True Answer": "B"
-    }
-  ]
-  
-console.log(questionObject);
-
- async function getAllQuestions(req, res) {
+async function getAllQuestions(req, res) {
   try {
-    const response = questionObject
+    const response = hardCodedQuestions
     // const response = await res.json()
     return res.status(200).send({message: "All questions retrieved successfully", data: response});
   }
@@ -55,7 +16,7 @@ console.log(questionObject);
 
 async function getQuestionById(req, res) {
   try {
-    const response = questionObject[req.params.id] 
+    const response = hardCodedQuestions[req.params.id] 
     // const response = await res.json()
     return res.status(200).send({message: "Question with specified id retrived successfully", data: response});
   }
@@ -64,17 +25,35 @@ async function getQuestionById(req, res) {
   }
 }
 
-// function getQuestionbyId(ID) {
-//     return userData[ID];
+function createQuestion(req, res) {
+//     userData.push(user);
+//     fs.writeFileSync('../data/users.json', JSON.stringify(userData));
+//     return user;
 // }
-
-function createQuestion(user) {
-    userData.push(user);
-    fs.writeFileSync('../data/users.json', JSON.stringify(userData));
-    return user;
+  try {
+    const response = hardCodedQuestions
+    hardCodedQuestions.push({
+      "Id": hardCodedQuestions.length - 1,
+      "Question": req.body.Question,
+      "AnswerA": req.body.AnswerA,
+      "AnswerB": req.body.AnswerB,
+      "TrueAnswer": req.body.TrueAnswer,
+      // "Question": "What is CSS?",
+      // "AnswerA": "Cascading Snake Style",
+      // "AnswerB": "Cascading Style Sheets",
+      // "TrueAnswer": "B"
+    }
+    )
+    // const response = await res.json()
+    return res.status(200).send({message: "Question with specified id retrived successfully", data: response});
+  }
+  catch (error) {
+    return res.status(500).send({message: "Error retrieving questions with specified id", error: error});
+  }
 }
 
 module.exports = {
     getAllQuestions: getAllQuestions,
-    getQuestionById: getQuestionById
+    getQuestionById: getQuestionById,
+    createQuestion: createQuestion
 };
