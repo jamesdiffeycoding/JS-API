@@ -8,7 +8,7 @@ router.get("/quiz", quizControllers.getAllQuestions)
 router.get("/quiz/:id", quizControllers.getQuestionById)
 router.post("/quiz", quizControllers.createQuestion)
 router.delete("/quiz/:id", quizControllers.deleteQuestion)
-router.patch("/quiz/:id", quizControllers.updateQuestion)
+router.put("/quiz/:id", quizControllers.updateQuestion)
 // router.get("/", (req, res) => {
 //   console.log('Query name: ', req.query.name)
 //   res.send("User List")
