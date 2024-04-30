@@ -22,16 +22,9 @@
   },
   {
     "Id": 3,
-    "Question": "What is HTML?",
-    "AnswerA": "A type of metal",
-    "AnswerB": "Hypertext Markup Language",
-    "TrueAnswer": "B"
-  },
-  {
-    "Id": 4,
-    "Question": "What is CSS?",
-    "AnswerA": "Cascading Snake Style",
-    "AnswerB": "Cascading Style Sheets",
-    "TrueAnswer": "B"
+    "Question": "7What is CSS?",
+    "AnswerA": "7Cascading Snake Style",
+    "AnswerB": "7Cascading Style Sheets",
+    "TrueAnswer": "7B"
   }
 ]

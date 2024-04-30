@@ -73,35 +73,9 @@ function deleteQuestion(req, res) {
       };
   
       // Find the index of the question to update
-      const questionIndex = hardCodedQuestions.findIndex(question => question.Id === questionId);
-  
-      if (questionIndex !== -1) {
-        hardCodedQuestions[questionIndex] = updatedQuestion; // Update the question at the found index
-        fs.writeFileSync('../v1deployed/data/users.json', JSON.stringify(hardCodedQuestions, null, 2));
-        return res.status(200).send({ message: "Question with specified ID updated successfully", data: updatedQuestion });
-      } else {
-        return res.status(404).send({ message: "Question with specified ID not found" });
-      }
-    } catch (error) {
-      return res.status(500).send({ message: "Error updating question with specified ID", error: error });
-    }
-  }
-  
-
-    function updateQuestion(req, res) {
-    try {
-      const updatedQuestion = {
-        "Id": req.params.id,
-        "Question": req.body.Question,
-        "AnswerA": req.body.AnswerA,
-        "AnswerB": req.body.AnswerB,
-        "TrueAnswer": req.body.TrueAnswer
-      };
-  
-      // Find the index of the question to update
       const questionIndex = hardCodedQuestions.findIndex(question => question.Id == questionId);
   
-      if (questionIndex !== -1) {
+      if (questionIndex != -1) {
         hardCodedQuestions[questionIndex] = updatedQuestion; // Update the question at the found index
         fs.writeFileSync('../v1deployed/data/users.json', JSON.stringify(hardCodedQuestions, null, 2));
         return res.status(200).send({ message: "Question with specified ID updated successfully", data: updatedQuestion });
